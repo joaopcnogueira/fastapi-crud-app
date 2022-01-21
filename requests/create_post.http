@@ -1,0 +1,7 @@
+POST http://localhost:8004/posts HTTP/1.1
+content-type: application/json
+
+{
+    "title": "fastapi is so cool",
+    "content": "i like it"
+}

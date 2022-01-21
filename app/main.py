@@ -1,8 +1,10 @@
+from distutils.log import debug
 from typing import Optional, List
 from fastapi import FastAPI, Response, status, HTTPException, Depends
-from app import models, schemas
-from app.database import engine, get_db
+from . import models, schemas
+from .database import engine, get_db
 from sqlalchemy.orm import Session
+import uvicorn
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -70,3 +72,6 @@ def update_post(id: int, updated_post: schemas.PostCreate, db: Session = Depends
     db.commit()
 
     return post_query.first()
+
+
+# uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8004

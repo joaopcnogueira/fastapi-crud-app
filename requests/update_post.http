@@ -1,0 +1,7 @@
+PUT http://localhost:8004/posts/1 HTTP/1.1
+content-type: application/json
+
+{
+    "title": "fastapi is so cool",
+    "content": "i really like it"
+}
